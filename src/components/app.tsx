@@ -1,12 +1,6 @@
-import { Routes, Route } from "react-router-dom";
-import PageOne from "../pages/PageOne";
-import PageTwo from "../pages/PageTwo";
+import { useRoutes } from "react-router-dom";
+import routes from "../routes";
 
 export const App = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<PageOne />} />
-      <Route path="/two" element={<PageTwo />} />
-    </Routes>
-  );
+  return <>{useRoutes(routes)}</>;
 };

@@ -14,5 +14,11 @@
   "ts-node": {
     "esm": true
   },
-  "include": ["**/*.ts", "**/*.tsx", "server/express.ts", "server/index.ts"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "server/express.ts",
+    "server/index.ts",
+    "src/routes.tsx"
+  ]
 }

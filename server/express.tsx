@@ -4,6 +4,8 @@ const path = require("path");
 const ReactDOMServer = require("react-dom/server");
 const { App } = require("../src/components/app");
 const { StaticRouter } = require("react-router-dom/server");
+const { Provider } = require("react-redux");
+import { store } from "../src/storage";
 
 const app = express();
 
@@ -21,9 +23,11 @@ app.use("*", (req: any, res: any) => {
         data.replace(
           '<div id="app"></div>',
           `<div id="app">${ReactDOMServer.renderToString(
-            <StaticRouter location={req.originalUrl}>
-              <App />
-            </StaticRouter>
+            <Provider store={store}>
+              <StaticRouter location={req.originalUrl}>
+                <App />
+              </StaticRouter>
+            </Provider>
           )}</div>`
         )
       );
